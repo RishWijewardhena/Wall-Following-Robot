@@ -1,58 +1,48 @@
-# 🤖 ESP32 Autonomous wall following Robot with Mapping & Navigation
+# ESP32 Autonomous wall following  Robot with Multi-Sensor System & Parallel Processing
 
-An **ESP32-based autonomous robot** designed for **environment mapping, obstacle avoidance, and waypoint-based navigation** using multiple sensors and efficient control algorithms. This project demonstrates **embedded programming**, **sensor fusion**, and **robot navigation** for autonomous applications.
+This project is an **ESP32-based autonomous robot** equipped with:
+- **VL53L0X ToF distance sensors** for obstacle detection
+- **TCS34725 color sensor** for color recognition
+- **MPU6050 gyroscope & accelerometer** for orientation and stability
+- **TB6612FNG motor driver** for precise motor control
+- **I2C multiplexer (TCA9548A)** for managing multiple I2C devices
 
----
-
-## 📌 Features
-
-- **Multi-Sensor Integration**:
-  - **VL53L0X ToF Sensors** – for precise distance measurements.
-  - **TCS34725 Color Sensor** – for object and surface color detection.
-  - **MPU6050 Gyroscope** – for orientation and heading.
-- **Motor Control**:
-  - N20 DC Motors with encoders for speed and position control.
-- **Autonomous Navigation**:
-  - Mapping the environment in real-time.
-  - Obstacle avoidance algorithms.
-  - Waypoint-based navigation.
-- **I²C Multiplexing** – handle multiple identical I²C devices without conflicts.
-- **Optimized Performance** – replacing `ledcSetup` with an efficient motor control method for reliability.
+The robot uses **parallel processing** with **FreeRTOS** to improve performance:
+- **Core 0**: Continuously reads and processes sensor data (distance, color, orientation)
+- **Core 1**: Executes decision-making algorithms and drives motors in real time
 
 ---
 
-## 📂 Hardware Components
+## 🚀 Features
 
-| Component | Description |
-|-----------|-------------|
-| ESP32 Dev Board | Main controller |
-| VL53L0X x3 | Time-of-Flight distance sensors |
-| TCS34725 | Color sensor |
-| MPU6050 | Gyroscope & accelerometer |
-| N20 Motors | 6V, 300 RPM DC motors with encoders |
-| TB6612FNG | Dual DC Motor Driver |
-| I²C Multiplexer | PCA9548A |
-| LiPo Battery | 3S (11.1V) with step-down regulator |
-| Chassis | 2-wheel or custom platform |
-
----
-
-## ⚙️ Software & Libraries
-
-- **Arduino IDE** (with ESP32 board support)
-- Libraries:
-  - `Wire.h` (I²C communication)
-  - `Adafruit_VL53L0X`
-  - `Adafruit_TCS34725`
-  - `MPU6050`
-  - `math.h` and `algorithm` for calculations
-- **FreeRTOS** (parallel task execution)
+- **Real-Time Obstacle Detection**  
+  Uses multiple VL53L0X sensors via an I2C multiplexer for 360° coverage.
+- **Color-Based Navigation**  
+  Detects and reacts to specific colors using the TCS34725 sensor.
+- **Stability & Orientation Control**  
+  Reads gyroscope/accelerometer data from the MPU6050.
+- **Parallel Processing for Efficiency**  
+  Sensor reading and decision-making run independently on separate CPU cores.
+- **Scalable Sensor Integration**  
+  Easily add more I2C devices without address conflicts.
+- **Smooth Motor Control**  
+  Powered by TB6612FNG dual-channel motor driver.
 
 ---
 
-## 🚀 Setup Instructions
+## 🛠 Hardware Used
 
-1. **Install Arduino IDE** and configure ESP32 board support.
-2. **Install required libraries**:
-   ```bash
-   Sketch → Include Library → Manage Libraries
+| Component | Purpose |
+|-----------|---------|
+| **ESP32** | Main microcontroller with dual-core capability |
+| **VL53L0X** | Time-of-Flight sensors for distance measurement |
+| **TCS34725** | Color sensor |
+| **MPU6050** | Gyroscope and accelerometer |
+| **TCA9548A** | I2C multiplexer |
+| **TB6612FNG** | Motor driver |
+| **N20 Motors (6V)** | Robot propulsion |
+
+---
+
+## 📂 Project Structure
+

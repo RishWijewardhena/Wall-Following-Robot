@@ -44,5 +44,7 @@ The robot uses **parallel processing** with **FreeRTOS** to improve performance:
 
 ---
 
+![WhatsApp Image 2025-08-13 at 20 07 54_be233f61](https://github.com/user-attachments/assets/20d8451a-f229-4ff6-9308-12f8387db0d5)
+
 
 

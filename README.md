@@ -44,5 +44,5 @@ The robot uses **parallel processing** with **FreeRTOS** to improve performance:
 
 ---
 
-## 📂 Project Structure
+
 

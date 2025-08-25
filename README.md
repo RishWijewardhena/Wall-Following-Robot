@@ -4,7 +4,7 @@ This project is an **ESP32-based autonomous robot** equipped with:
 - **VL53L0X ToF distance sensors** for obstacle detection
 - **TCS34725 color sensor** for color recognition
 - **MPU6050 gyroscope & accelerometer** for orientation and stability
-- **TB6612FNG motor driver** for precise motor control
+- **L298N motor driver** for precise motor control
 - **I2C multiplexer (TCA9548A)** for managing multiple I2C devices
 
 The robot uses **parallel processing** with **FreeRTOS** to improve performance:
@@ -39,7 +39,7 @@ The robot uses **parallel processing** with **FreeRTOS** to improve performance:
 | **TCS34725** | Color sensor |
 | **MPU6050** | Gyroscope and accelerometer |
 | **TCA9548A** | I2C multiplexer |
-| **TB6612FNG** | Motor driver |
+| **L298N** | Motor driver |
 | **N20 Motors (6V)** | Robot propulsion |
 
 ---

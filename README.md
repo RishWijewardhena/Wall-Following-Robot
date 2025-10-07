@@ -26,7 +26,7 @@ The robot uses **parallel processing** with **FreeRTOS** to improve performance:
 - **Scalable Sensor Integration**  
   Easily add more I2C devices without address conflicts.
 - **Smooth Motor Control**  
-  Powered by TB6612FNG dual-channel motor driver.
+  Powered by L298N dual-channel motor driver.
 
 ---
 
